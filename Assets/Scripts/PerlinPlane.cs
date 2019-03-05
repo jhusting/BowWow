@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class PerlinPlane : MonoBehaviour
 {
+    public Texture2D guide;
+    [Range(0, 1f)]
+    public float mixFraction = .8f;
     [Range(0,100)]
     public int size = 50;
     [Range(0f, 100f)]
@@ -102,6 +105,12 @@ public class PerlinPlane : MonoBehaviour
             frequency *= 2f;
         }
 
-        return (noiseVal/maxVal)*bumpiness;
+        float xfrac = (float)x / (float)size;
+        float yfrac = (float)y / (float)size;
+        float greyScaleVal = guide.GetPixelBilinear(yfrac, xfrac).grayscale;
+
+
+        //return (noiseVal/maxVal)*bumpiness;
+        return (1 - (greyScaleVal * mixFraction) + noiseVal * (1 - mixFraction))*bumpiness;
     }
 }

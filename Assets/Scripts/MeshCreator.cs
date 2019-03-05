@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MeshCreator
 {
+    public float bumpiness = 10f;
+    [Range(0, 1f)]
+    public float color1Cutoff = .28f;
+    [Range(0, 1f)]
+    public float color2Cutoff = .8f;
     private List<Vector3> vertices = new List<Vector3>();
 
     private List<Vector3> normals = new List<Vector3>();
@@ -33,10 +38,24 @@ public class MeshCreator
         normals.Add(normal);
         normals.Add(normal);
 
-        // Use standard uv coordinates  
-        uvs.Add(new Vector2(0, 0));
-        uvs.Add(new Vector2(0, 1));
-        uvs.Add(new Vector2(1, 1));
+        float loc = 0f;
+
+        float avgHeight = (vertex0.y + vertex1.y + vertex2.y) / (3f * bumpiness);
+
+        if (avgHeight < color1Cutoff)
+            loc = .8f;
+        else if (avgHeight < color2Cutoff)
+            loc = .5f;
+        else
+            loc = 0f;
+       
+        /*/// Use standard uv coordinates  
+        uvs.Add(new Vector2(.4f, .4f));
+        uvs.Add(new Vector2(0, 0.3f));
+        uvs.Add(new Vector2(0.3f, 0.3f));*/
+        uvs.Add(new Vector2(loc, loc));
+        uvs.Add(new Vector2(loc, loc + .1f));
+        uvs.Add(new Vector2(loc + .1f, loc + .1f));
 
         // Add integer pointers to vertices into triangles list 
         triangleIndices.Add(v0Index);
