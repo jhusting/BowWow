@@ -33,35 +33,41 @@ public class PerlinPlane : MonoBehaviour
     [Range(1,16)]
     public int persistence = 2;
 
-    private Vector3[,] verts;
+    private Vector3[][] verts;
     private MeshCollider MeshCol;
 
     // Use this for initialization
     void Start ()
     {
-        verts = new Vector3[size,size];
+        verts = new Vector3[size][];
+        for (int i = 0; i < size; ++i)
+        {
+            verts[i] = new Vector3[size];
+        }
         MeshCol = GetComponent<MeshCollider>();
         GenerateVerts();
 
-        /*MeshFilter meshFilter = this.GetComponent<MeshFilter>();
-        MeshCreator mc = new MeshCreator();
-
-        GenerateMesh(mc);
-
-        meshFilter.mesh = mc.CreateMesh();
-        MeshCol.sharedMesh = meshFilter.mesh;*/
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
         MeshFilter meshFilter = this.GetComponent<MeshFilter>();
         MeshCreator mc = new MeshCreator();
+        mc.bumpiness = bumpiness;
 
         GenerateMesh(mc);
 
         meshFilter.mesh = mc.CreateMesh();
         MeshCol.sharedMesh = meshFilter.mesh;
+    }
+	
+	// Update is called once per frame
+	void Update ()
+    {
+        /*MeshFilter meshFilter = this.GetComponent<MeshFilter>();
+        MeshCreator mc = new MeshCreator();
+        mc.bumpiness = bumpiness;
+
+        GenerateMesh(mc);
+
+        meshFilter.mesh = mc.CreateMesh();
+        MeshCol.sharedMesh = meshFilter.mesh;*/
 	}
 
     void GenerateVerts()
@@ -70,7 +76,7 @@ public class PerlinPlane : MonoBehaviour
         {
             for(int j = 0; j < size; ++j)
             {
-                verts[i,j] = new Vector3(gridSize*i, 0f,gridSize*j);
+                verts[i][j] = new Vector3(gridSize*i, 0f,gridSize*j);
             }
         }
     }
@@ -81,7 +87,7 @@ public class PerlinPlane : MonoBehaviour
         {
             for (int j = 0; j < size; ++j)
             {
-                verts[i, j].y = CalculateHeight(i, j);
+                verts[i][j].y = CalculateHeight(i, j);
             }
         }
 
@@ -89,8 +95,8 @@ public class PerlinPlane : MonoBehaviour
         {
             for (int j = 0; j < size - 1; ++j)
             {
-                mc.BuildTriangle(verts[i, j], verts[i + 1, j], verts[i + 1, j + 1]);
-                mc.BuildTriangle(verts[i, j], verts[i + 1, j + 1], verts[i, j + 1]);
+                mc.BuildTriangle(verts[i][j], verts[i + 1][j], verts[i + 1][j + 1]);
+                mc.BuildTriangle(verts[i][j], verts[i + 1][j + 1], verts[i][j + 1]);
             }
         }
     }

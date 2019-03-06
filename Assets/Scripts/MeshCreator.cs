@@ -6,9 +6,9 @@ public class MeshCreator
 {
     public float bumpiness = 10f;
     [Range(0, 1f)]
-    public float color1Cutoff = .28f;
+    public float color1Cutoff = .3f;
     [Range(0, 1f)]
-    public float color2Cutoff = .8f;
+    public float color2Cutoff = .7f;
     private List<Vector3> vertices = new List<Vector3>();
 
     private List<Vector3> normals = new List<Vector3>();
@@ -40,7 +40,7 @@ public class MeshCreator
 
         float loc = 0f;
 
-        float avgHeight = (vertex0.y + vertex1.y + vertex2.y) / (3f * bumpiness);
+        float avgHeight = (vertex0.y + vertex1.y + vertex2.y) / (3f * (bumpiness + 2f));
 
         if (avgHeight < color1Cutoff)
             loc = .8f;
@@ -48,7 +48,7 @@ public class MeshCreator
             loc = .5f;
         else
             loc = 0f;
-       
+
         /*/// Use standard uv coordinates  
         uvs.Add(new Vector2(.4f, .4f));
         uvs.Add(new Vector2(0, 0.3f));
