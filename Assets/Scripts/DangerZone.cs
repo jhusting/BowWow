@@ -5,10 +5,11 @@ using UnityEngine;
 public class DangerZone : MonoBehaviour
 {
     public bool dangerous = false;
+    private AudioSource bork;
     // Start is called before the first frame update
     void Start()
     {
-        
+        bork = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class DangerZone : MonoBehaviour
         {
             dangerous = false;
             Debug.Log("Bark!");
+            bork.Play();
         }
     }
 }
