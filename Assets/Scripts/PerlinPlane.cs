@@ -8,6 +8,7 @@ using UnityEngine;
 public class PerlinPlane : MonoBehaviour
 {
     public Texture2D guide;
+    public bool UpdateOnTick = false;
     [Range(0, 1f)]
     public float mixFraction = .8f;
     [Range(0,200)]
@@ -47,27 +48,33 @@ public class PerlinPlane : MonoBehaviour
         MeshCol = GetComponent<MeshCollider>();
         GenerateVerts();
 
-        MeshFilter meshFilter = this.GetComponent<MeshFilter>();
-        MeshCreator mc = new MeshCreator();
-        mc.bumpiness = bumpiness;
+        if (!UpdateOnTick)
+        {
+            MeshFilter meshFilter = this.GetComponent<MeshFilter>();
+            MeshCreator mc = new MeshCreator();
+            mc.bumpiness = bumpiness;
 
-        GenerateMesh(mc);
+            GenerateMesh(mc);
 
-        meshFilter.mesh = mc.CreateMesh();
-        MeshCol.sharedMesh = meshFilter.mesh;
+            meshFilter.mesh = mc.CreateMesh();
+            MeshCol.sharedMesh = meshFilter.mesh;
+        }
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        /*MeshFilter meshFilter = this.GetComponent<MeshFilter>();
-        MeshCreator mc = new MeshCreator();
-        mc.bumpiness = bumpiness;
+        if (UpdateOnTick)
+        {
+            MeshFilter meshFilter = this.GetComponent<MeshFilter>();
+            MeshCreator mc = new MeshCreator();
+            mc.bumpiness = bumpiness;
 
-        GenerateMesh(mc);
+            GenerateMesh(mc);
 
-        meshFilter.mesh = mc.CreateMesh();
-        MeshCol.sharedMesh = meshFilter.mesh;*/
+            meshFilter.mesh = mc.CreateMesh();
+            MeshCol.sharedMesh = meshFilter.mesh;
+        }
 	}
 
     void GenerateVerts()

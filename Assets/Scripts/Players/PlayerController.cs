@@ -8,18 +8,36 @@ public class PlayerController : MonoBehaviour
     public BoomCamera Camera;
     public float speed = 5f;
     public float _moveSpeedModifier = 500f;
+    public DangerZone BarkZone;
+    public float BarkCooldown = 0.25f;
          
     protected Vector3 inputVector;
     protected Rigidbody rb;
+    private float currBarkTime = -1f;
     
     protected void Start()
     {
         inputVector = new Vector3(0, 0, 0);
         rb = GetComponent<Rigidbody>();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+
+    private void Update()
+    {
+        if (currBarkTime >= 0f)
+        {
+            currBarkTime += Time.deltaTime;
+            if (currBarkTime >= BarkCooldown)
+                currBarkTime = -1f;
+        }
+        if(Input.GetAxis("Bark") > 0 && currBarkTime < 0f)
+        {
+            currBarkTime = 0f;
+            BarkZone.dangerous = true;
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate ()
     {
         CalculateInputVector();
         Move();
