@@ -10,7 +10,7 @@ public class PerlinPlane : MonoBehaviour
     public Texture2D guide;
     [Range(0, 1f)]
     public float mixFraction = .8f;
-    [Range(0,100)]
+    [Range(0,200)]
     public int size = 50;
     [Range(0f, 100f)]
     public float gridSize = 1f;
@@ -34,13 +34,23 @@ public class PerlinPlane : MonoBehaviour
     public int persistence = 2;
 
     private Vector3[,] verts;
+    private MeshCollider MeshCol;
 
     // Use this for initialization
     void Start ()
     {
         verts = new Vector3[size,size];
+        MeshCol = GetComponent<MeshCollider>();
         GenerateVerts();
-	}
+
+        /*MeshFilter meshFilter = this.GetComponent<MeshFilter>();
+        MeshCreator mc = new MeshCreator();
+
+        GenerateMesh(mc);
+
+        meshFilter.mesh = mc.CreateMesh();
+        MeshCol.sharedMesh = meshFilter.mesh;*/
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -51,6 +61,7 @@ public class PerlinPlane : MonoBehaviour
         GenerateMesh(mc);
 
         meshFilter.mesh = mc.CreateMesh();
+        MeshCol.sharedMesh = meshFilter.mesh;
 	}
 
     void GenerateVerts()
