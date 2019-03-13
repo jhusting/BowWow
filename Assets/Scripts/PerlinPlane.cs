@@ -8,6 +8,11 @@ using UnityEngine;
 public class PerlinPlane : MonoBehaviour
 {
     public Texture2D guide;
+    public GameObject enemyPrefab;
+    public GameObject[] trees;
+    public GameObject[] bushes;
+    public GameObject[] grass;
+    public GameObject[] rocks;
     public bool UpdateOnTick = false;
     [Range(0, 1f)]
     public float mixFraction = .8f;
@@ -55,6 +60,7 @@ public class PerlinPlane : MonoBehaviour
             mc.bumpiness = bumpiness;
 
             GenerateMesh(mc);
+            GenerateEnvironment();
 
             meshFilter.mesh = mc.CreateMesh();
             MeshCol.sharedMesh = meshFilter.mesh;
@@ -136,5 +142,61 @@ public class PerlinPlane : MonoBehaviour
 
         //return (noiseVal/maxVal)*bumpiness;
         return (1 - (greyScaleVal * mixFraction) + noiseVal * (1 - mixFraction))*bumpiness;
+    }
+
+    void GenerateEnvironment()
+    {
+        for (int i = 0; i < size; ++i)
+        {
+            for (int j = 0; j < size; ++j)
+            {
+                //verts[i][j].y = CalculateHeight(i, j);
+
+                float xfrac = (float)i / (float)size;
+                float yfrac = (float)j / (float)size;
+                float greyScaleVal = guide.GetPixelBilinear(yfrac, xfrac).grayscale;
+
+                float picker = Random.Range(0f, 100f) - 7f * greyScaleVal;
+                if (picker < 8f)
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.x += i * 6f;
+                    newPosition.z -= j * 6f;
+                    newPosition.y = -42f - 15f + (bumpiness - verts[i][j].y) * 6f;
+
+                    float arrPicker = Random.Range(0f, 100f);
+
+                    if(arrPicker < 40f) // grass
+                    {
+                        int index = Mathf.FloorToInt(Random.Range(0f, grass.Length));
+                        GameObject obj = Instantiate(grass[index], newPosition, Quaternion.Euler(0, 0, 0)) as GameObject;
+                    }
+                    else if (arrPicker < 60f) // rocks
+                    {
+                        int index = Mathf.FloorToInt(Random.Range(0f, rocks.Length));
+                        GameObject obj = Instantiate(rocks[index], newPosition, Quaternion.Euler(0, 0, 0)) as GameObject;
+                    }
+                    else if (arrPicker < 80f) // bushes
+                    {
+                        int index = Mathf.FloorToInt(Random.Range(0f, bushes.Length));
+                        GameObject obj = Instantiate(bushes[index], newPosition, Quaternion.Euler(0, 0, 0)) as GameObject;
+                    }
+                    else // trees
+                    {
+                        int index = Mathf.FloorToInt(Random.Range(0f, trees.Length));
+                        GameObject obj = Instantiate(trees[index], newPosition, Quaternion.Euler(0, 0, 0)) as GameObject;
+                    }
+                }
+                else if (picker < 15f)
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.x += i * 6f;
+                    newPosition.z -= j * 6f;
+                    newPosition.y = -42f - 15f + (bumpiness - verts[i][j].y) * 6f;
+
+                    GameObject obj = Instantiate(enemyPrefab, newPosition, Quaternion.Euler(0f, 0f, 0f)) as GameObject;
+                }
+            }
+        }
     }
 }

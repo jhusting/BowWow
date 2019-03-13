@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DangerZone : MonoBehaviour
 {
-    public bool dangerous = false;
-    private AudioSource bork;
+    public AudioSource bork;
+
+    public float dangTimer = -1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +16,26 @@ public class DangerZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dangerous)
+        dangTimer += Time.deltaTime;
+
+        if(dangTimer > .6f)
         {
-            dangerous = false;
-            Debug.Log("Bark!");
-            bork.Play();
+            dangTimer = -1f;
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            SquirrelController sq = other.GetComponent<SquirrelController>();
+
+            if (sq)
+            {
+                sq.runningModifier = 6.0f;
+                sq.exclamation.SetActive(true);
+            }
         }
     }
 }

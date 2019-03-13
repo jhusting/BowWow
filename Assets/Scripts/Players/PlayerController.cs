@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float _moveSpeedModifier = 500f;
     public DangerZone BarkZone;
     public float BarkCooldown = 0.25f;
+    public ParticleSystem ps;
          
     protected Vector3 inputVector;
     protected Rigidbody rb;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         inputVector = new Vector3(0, 0, 0);
         rb = GetComponent<Rigidbody>();
+        ps = ps.GetComponent<ParticleSystem>();
     }
 
     private void Update()
@@ -29,10 +31,15 @@ public class PlayerController : MonoBehaviour
             if (currBarkTime >= BarkCooldown)
                 currBarkTime = -1f;
         }
-        if(Input.GetAxis("Bark") > 0 && currBarkTime < 0f)
+        //if(Input.GetAxis("Bark") > 0 && currBarkTime < 0f)
+        if(Input.GetButtonDown("Bark") && currBarkTime < 0f)
         {
             currBarkTime = 0f;
-            BarkZone.dangerous = true;
+            //BarkZone.dangerous = true;
+            BarkZone.gameObject.SetActive(true);
+            BarkZone.dangTimer = 0f;
+            BarkZone.bork.Play();
+            ps.Play();
         }
     }
 
@@ -67,6 +74,7 @@ public class PlayerController : MonoBehaviour
         if (inputVector.magnitude > .01f)
         {
             rb.MovePosition((transform.position + newInput * Time.deltaTime * speed)); //move rigidbody
+            transform.LookAt(transform.position + inputVector);
         }
     }
 }
