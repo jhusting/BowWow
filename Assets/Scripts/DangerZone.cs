@@ -6,7 +6,7 @@ public class DangerZone : MonoBehaviour
 {
     public AudioSource bork;
 
-    public float dangTimer = -1f;
+    public float dangTimer = 0f;
     private ScoreText ScoreController;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class DangerZone : MonoBehaviour
 
         if(dangTimer > .2f)
         {
-            dangTimer = -1f;
+            dangTimer = 0f;
             gameObject.SetActive(false);
         }
     }
