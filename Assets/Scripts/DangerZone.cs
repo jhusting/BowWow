@@ -7,9 +7,11 @@ public class DangerZone : MonoBehaviour
     public AudioSource bork;
 
     public float dangTimer = -1f;
+    private ScoreText ScoreController;
     // Start is called before the first frame update
     void Start()
     {
+        ScoreController = GameObject.FindGameObjectWithTag("ScoreController").GetComponent<ScoreText>();
         bork = GetComponent<AudioSource>();
     }
 
@@ -18,7 +20,7 @@ public class DangerZone : MonoBehaviour
     {
         dangTimer += Time.deltaTime;
 
-        if(dangTimer > .6f)
+        if(dangTimer > .2f)
         {
             dangTimer = -1f;
             gameObject.SetActive(false);
@@ -36,6 +38,8 @@ public class DangerZone : MonoBehaviour
                 sq.runningModifier = 6.0f;
                 sq.exclamation.SetActive(true);
             }
+
+            ScoreController.AddMultiplier(1);
         }
     }
 }

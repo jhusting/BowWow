@@ -11,9 +11,11 @@ public class SquirrelController : MonoBehaviour
 
     private Rigidbody rb;
     private Animator an;
+    private ScoreText scoreController;
     // Start is called before the first frame update
     void Start()
     {
+        scoreController = GameObject.FindGameObjectWithTag("ScoreController").GetComponent<ScoreText>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         an = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -30,6 +32,8 @@ public class SquirrelController : MonoBehaviour
             rb.MovePosition(transform.position + direction);
             transform.LookAt(transform.position + direction);
             an.SetBool("Moving", true);
+
+            scoreController.AddScore(Time.deltaTime * 100f);
         }
         else
             an.SetBool("Moving", false);

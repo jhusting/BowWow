@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: 4f07cbf514ec85d4ea585187daba8508
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Chest
+    100004: Finger0_0.L
+    100006: Finger0_0.R
+    100008: Finger0_1.L
+    100010: Finger0_1.R
+    100012: Finger0_2.L
+    100014: Finger0_2.L_end
+    100016: Finger0_2.R
+    100018: Finger0_2.R_end
+    100020: Finger1_0.L
+    100022: Finger1_0.R
+    100024: Finger1_1.L
+    100026: Finger1_1.R
+    100028: Finger1_2.L
+    100030: Finger1_2.L_end
+    100032: Finger1_2.R
+    100034: Finger1_2.R_end
+    100036: Finger2_0.L
+    100038: Finger2_0.R
+    100040: Finger2_1.L
+    100042: Finger2_1.R
+    100044: Finger2_2.L
+    100046: Finger2_2.L_end
+    100048: Finger2_2.R
+    100050: Finger2_2.R_end
+    100052: Finger3_0.L
+    100054: Finger3_0.R
+    100056: Finger3_1.L
+    100058: Finger3_1.R
+    100060: Finger3_2.L
+    100062: Finger3_2.L_end
+    100064: Finger3_2.R
+    100066: Finger3_2.R_end
+    100068: Foot.L
+    100070: Foot.L_end
+    100072: Foot.R
+    100074: Foot.R_end
+    100076: Glass
+    100078: Hand.L
+    100080: Hand.R
+    100082: Head
+    100084: Head_end
+    100086: IK Elbow.L
+    100088: IK Elbow.L_end
+    100090: IK Elbow.R
+    100092: IK Elbow.R_end
+    100094: IK Foot.L
+    100096: IK Foot.R
+    100098: IK Hand.L
+    100100: IK Hand.R
+    100102: IK Knee.L
+    100104: IK Knee.L_end
+    100106: IK Knee.R
+    100108: IK Knee.R_end
+    100110: LowerArm.L
+    100112: LowerArm.L_end
+    100114: LowerArm.R
+    100116: LowerArm.R_end
+    100118: LowerLeg.L
+    100120: LowerLeg.L_end
+    100122: LowerLeg.R
+    100124: LowerLeg.R_end
+    100126: Neck
+    100128: Retopo_Suit
+    100130: //RootNode
+    100132: Thumb0_0.L
+    100134: Thumb0_0.R
+    100136: Thumb0_1.L
+    100138: Thumb0_1.R
+    100140: Thumb0_2.L
+    100142: Thumb0_2.L_end
+    100144: Thumb0_2.R
+    100146: Thumb0_2.R_end
+    100148: Torso
+    100150: UpperArm.L
+    100152: UpperArm.R
+    100154: UpperLeg.L
+    100156: UpperLeg.R
+    400000: Armature
+    400002: Chest
+    400004: Finger0_0.L
+    400006: Finger0_0.R
+    400008: Finger0_1.L
+    400010: Finger0_1.R
+    400012: Finger0_2.L
+    400014: Finger0_2.L_end
+    400016: Finger0_2.R
+    400018: Finger0_2.R_end
+    400020: Finger1_0.L
+    400022: Finger1_0.R
+    400024: Finger1_1.L
+    400026: Finger1_1.R
+    400028: Finger1_2.L
+    400030: Finger1_2.L_end
+    400032: Finger1_2.R
+    400034: Finger1_2.R_end
+    400036: Finger2_0.L
+    400038: Finger2_0.R
+    400040: Finger2_1.L
+    400042: Finger2_1.R
+    400044: Finger2_2.L
+    400046: Finger2_2.L_end
+    400048: Finger2_2.R
+    400050: Finger2_2.R_end
+    400052: Finger3_0.L
+    400054: Finger3_0.R
+    400056: Finger3_1.L
+    400058: Finger3_1.R
+    400060: Finger3_2.L
+    400062: Finger3_2.L_end
+    400064: Finger3_2.R
+    400066: Finger3_2.R_end
+    400068: Foot.L
+    400070: Foot.L_end
+    400072: Foot.R
+    400074: Foot.R_end
+    400076: Glass
+    400078: Hand.L
+    400080: Hand.R
+    400082: Head
+    400084: Head_end
+    400086: IK Elbow.L
+    400088: IK Elbow.L_end
+    400090: IK Elbow.R
+    400092: IK Elbow.R_end
+    400094: IK Foot.L
+    400096: IK Foot.R
+    400098: IK Hand.L
+    400100: IK Hand.R
+    400102: IK Knee.L
+    400104: IK Knee.L_end
+    400106: IK Knee.R
+    400108: IK Knee.R_end
+    400110: LowerArm.L
+    400112: LowerArm.L_end
+    400114: LowerArm.R
+    400116: LowerArm.R_end
+    400118: LowerLeg.L
+    400120: LowerLeg.L_end
+    400122: LowerLeg.R
+    400124: LowerLeg.R_end
+    400126: Neck
+    400128: Retopo_Suit
+    400130: //RootNode
+    400132: Thumb0_0.L
+    400134: Thumb0_0.R
+    400136: Thumb0_1.L
+    400138: Thumb0_1.R
+    400140: Thumb0_2.L
+    400142: Thumb0_2.L_end
+    400144: Thumb0_2.R
+    400146: Thumb0_2.R_end
+    400148: Torso
+    400150: UpperArm.L
+    400152: UpperArm.R
+    400154: UpperLeg.L
+    400156: UpperLeg.R
+    2100000: helmet_MAT
+    2100002: suit_diff_MAT
+    2300000: Glass
+    3300000: Glass
+    4300000: Glass
+    4300002: Retopo_Suit
+    7400000: Armature|Idle
+    7400002: Armature|Walk
+    9500000: //RootNode
+    13700000: Retopo_Suit
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Walk
+      takeName: Armature|Walk
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
